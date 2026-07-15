@@ -1,0 +1,60 @@
+body {
+    background-color: #0d1117;
+    color: #58a6ff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.pet-container {
+    background-color: #161b22;
+    border: 2px solid #30363d;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+}
+
+h1 {
+    color: #c9d1d9;
+    margin-bottom: 20px;
+}
+
+.screen {
+    background-color: #010409;
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.screen p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #21262d;
+    color: #58a6ff;
+    border: 1px solid #30363d;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+}
+
+button:active {
+    background-color: #282e38;
+}
