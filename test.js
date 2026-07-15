@@ -38,3 +38,25 @@ debugBtn.addEventListener("click", () => {
         bugsVal.textContent = devBot.bugs;
     }
 });
+
+setInterval (() => {
+    if (!devBot.isAlive) {
+        return; 
+    }
+
+    devBot.energy -= 2;
+    devBot.bugs += 1;
+
+
+    if (devBot.energy <= 0 || devBot.bugs >= 100) {
+        devBot.isAlive = false;
+        statusText.textContent = "CRASHED";
+
+       if (devBot.energy < 0) devBot.energy = 0;
+        if (devBot.bugs > 100) devBot.bugs = 100;
+    }
+    
+    energyVal.textContent = devBot.energy;
+    bugsVal.textContent = devBot.bugs;
+
+}, 1000);
