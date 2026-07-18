@@ -10,12 +10,14 @@ body {
 }
 
 .pet-container {
-    background-color: #161b22;
-    border: 2px solid #30363d;
-    border-radius: 10px;
+    background: #161b22;
     padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #30363d;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    width: 350px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+    transition: all 0.5s ease;
 }
 
 h1 {
@@ -23,13 +25,28 @@ h1 {
     margin-bottom: 20px;
 }
 
+.pet-container.warning-battery { 
+    border-color: #d4af37;  
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.pet-container.warning-bugs { 
+    border-color: #d29922; 
+    box-shadow: 0 0 20px rgba(210, 153, 34, 0.4);
+}  
+
+.pet-container.dead { 
+    border-color: #f85149; 
+    box-shadow: 0 0 20px rgba(248, 81, 73, 0.4);
+}  
+
 .screen {
     background-color: #010409;
-    border: 1px solid #30363d;
-    border-radius: 5px;
     padding: 20px;
+    border-radius: 6px;
     margin-bottom: 20px;
     text-align: left;
+    border: 1px solid #21262d;
 }
 
 .screen p {
@@ -39,15 +56,14 @@ h1 {
 
 button {
     background-color: #21262d;
-    color: #58a6ff;
+    color: #c9d1d9;
     border: 1px solid #30363d;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
+    padding: 12px;
     border-radius: 6px;
-    margin: 5px;
-    transition: 0.2s;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
 button:hover {
@@ -59,18 +75,15 @@ button:active {
     background-color: #282e38;
 }
 
-.pet-container {
-    transition: all 0.5s ease;
+#reboot-btn {
+    background-color: #238636;  
+    color: white;
+    border: none;
+    font-weight: bold;
 }
 
-.pet-container.warning-battery {
-    border-color: #d4af37;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-.pet-container.dead {
-    border-color: #f85149;
-    box-shadow: 0 0 20px rgba(248, 81, 73, 0.4);
+#reboot-btn:hover {
+    background-color: #0c5119;
 }
 
 .hidden {

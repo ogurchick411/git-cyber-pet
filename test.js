@@ -17,6 +17,7 @@ const chargeBtn = document.querySelector("#charge-btn"); // [cite: 2]
 const debugBtn = document.querySelector("#debug-btn"); // [cite: 2]
 const rebootBtn = document.querySelector("#reboot-btn");
 const uptimeVal = document.querySelector("#uptime-val");
+const petForm = document.querySelector("#pet-form");
 
 
 
@@ -37,6 +38,7 @@ const updateSystemStatus = () => {
         statusText.textContent = "WARNING: LOW BATTERY";
     } else {
         statusText.textContent = "ONLINE";
+        rebootBtn.classList.add("hidden");
     }
 };
 
@@ -75,10 +77,10 @@ rebootBtn.addEventListener("click", () => {
     energyVal.textContent = devBot.energy;
     bugsVal.textContent = devBot.bugs;
     uptime.textContent = devBot.uptime;
-
-    rebootBtn.classList.add("hidden");
+    petForm.textContent = "Idea";
     
     updateSystemStatus();
+    rebootBtn.classList.add("hidden");
 });
 
 setInterval (() => {
@@ -90,6 +92,17 @@ setInterval (() => {
     devBot.energy -= 2;
     devBot.bugs += 1;
 
+
+    if (devBot.uptime > 90) {
+        petForm.textContent = "Release";
+    } else if (devBot.uptime > 50) {
+        petForm.textContent = "Beta";
+    } else if (devBot.uptime > 20) {
+        petForm.textContent = "Alpha";
+    } else {
+        petForm.textContent = "Idea";
+    }
+    
    
     if (devBot.energy <= 0 || devBot.bugs >= 100) {
         devBot.isAlive = false;
