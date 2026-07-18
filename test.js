@@ -14,6 +14,9 @@ const statusText = document.querySelector("#status-text"); // [cite: 2]
 
 const chargeBtn = document.querySelector("#charge-btn"); // [cite: 2]
 const debugBtn = document.querySelector("#debug-btn"); // [cite: 2]
+const rebootBtn = document.querySelector("#reboot-btn");
+
+
 
 const updateSystemStatus = () => {
 
@@ -22,6 +25,8 @@ const updateSystemStatus = () => {
     if (!devBot.isAlive) {
         petContainer.classList.add("dead");
         statusText.textContent = "CRASHED";
+        rebootBtn.classList.remove("hidden");
+
     } else if (devBot.bugs > 70) {
         petContainer.classList.add("warning-bugs");
         statusText.textContent = "WARNING: HIGH BUG RATE";
@@ -50,13 +55,26 @@ chargeBtn.addEventListener("click", () => {
 
 debugBtn.addEventListener("click", () => {
     if (devBot.isAlive) {
-        devBot.bugs -= 15;
+        devBot.bugs -= 5;
 
         if (devBot.bugs < 0) devBot.bugs = 0;
         
         bugsVal.textContent = devBot.bugs;
         updateSystemStatus();
     }
+});
+
+rebootBtn.addEventListener("click", () => {
+    devBot.isAlive = true;
+    devBot.energy = 100; 
+    devBot.bugs = 0;
+    
+    energyVal.textContent = devBot.energy;
+    bugsVal.textContent = devBot.bugs;
+
+    rebootBtn.classList.add("hidden");
+    
+    updateSystemStatus();
 });
 
 setInterval (() => {
@@ -79,6 +97,4 @@ setInterval (() => {
     updateSystemStatus();
 
 }, 1000);
-
-
 
