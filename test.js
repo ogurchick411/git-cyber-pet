@@ -4,6 +4,7 @@ const petContainer = document.querySelector(".pet-container");
 let devBot = {
     energy: 100,
     bugs: 0,
+    uptime: 0,
     isAlive: true
 };
 
@@ -15,6 +16,7 @@ const statusText = document.querySelector("#status-text"); // [cite: 2]
 const chargeBtn = document.querySelector("#charge-btn"); // [cite: 2]
 const debugBtn = document.querySelector("#debug-btn"); // [cite: 2]
 const rebootBtn = document.querySelector("#reboot-btn");
+const uptimeVal = document.querySelector("#uptime-val");
 
 
 
@@ -68,9 +70,11 @@ rebootBtn.addEventListener("click", () => {
     devBot.isAlive = true;
     devBot.energy = 100; 
     devBot.bugs = 0;
+    devBot.uptime = 0;
     
     energyVal.textContent = devBot.energy;
     bugsVal.textContent = devBot.bugs;
+    uptime.textContent = devBot.uptime;
 
     rebootBtn.classList.add("hidden");
     
@@ -81,9 +85,12 @@ setInterval (() => {
     if (!devBot.isAlive) {
         return; 
     }
+    devBot.uptime += 1;
+
     devBot.energy -= 2;
     devBot.bugs += 1;
 
+   
     if (devBot.energy <= 0 || devBot.bugs >= 100) {
         devBot.isAlive = false;
         statusText.textContent = "CRASHED";
@@ -94,6 +101,7 @@ setInterval (() => {
     
     energyVal.textContent = devBot.energy;
     bugsVal.textContent = devBot.bugs;
+    uptimeVal.textContent = devBot.uptime;
     updateSystemStatus();
 
 }, 1000);
